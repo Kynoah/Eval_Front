@@ -13,11 +13,11 @@ const CLE_STOCKAGE = "slimes_v2"; // nouvelle clé car les slimes ont maintenant
 const COULEURS = ["beige", "bleu", "gris", "orange", "rose", "rouge", "vert"];
 const ACTIONS = ["idle", "attaque", "mort", "clignement"];
 
-// Renvoie le chemin du gif, ex : getGif("attaque", "bleu") -> "Images/attaque_bleu.gif"
+// Renvoie le chemin du gif, ex : getGif("attaque", "bleu") -> "Assets/Images/attaque_bleu.gif"
 function getGif(action, couleur) {
   if (!ACTIONS.includes(action)) action = "idle";
   if (!COULEURS.includes(couleur)) couleur = "vert";
-  return `Images/${action}_${couleur}.gif`;
+  return `Assets/Images/${action}_${couleur}.gif`;
 }
 
 // Récupère la liste (localStorage pour garder les modifs entre les pages)
