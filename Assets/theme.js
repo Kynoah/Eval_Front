@@ -2,7 +2,9 @@
 // Pour ajouter un thème : ajoute une entrée ici + un bloc [data-theme="..."] dans style.css
 const THEMES = {
   classique: "Classique",
-  sombre: "Sombre"
+  sombre: "Sombre",
+  Coloré: "Maxence"
+  
 };
 
 const CLE_THEME = "theme";
