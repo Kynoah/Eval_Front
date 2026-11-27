@@ -1,0 +1,208 @@
+/* ===== Mode Tournoi ===== */
+
+/* Les éléments avec l'attribut hidden restent cachés même s'ils ont un display */
+[hidden] {
+  display: none !important;
+}
+
+/* ----- Sélection ----- */
+.reglages {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.reglages .champ input {
+  width: 120px;
+}
+
+.aide {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.btn-creer {
+  margin-top: 1.5rem;
+}
+
+.tournoi-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.arene-titre {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ----- Arbre ----- */
+.arbre {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.arbre-tour {
+  flex: 1;
+  min-width: 170px;
+  display: flex;
+  flex-direction: column;
+}
+
+.arbre-tour h3 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.arbre-matchs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 0.75rem;
+}
+
+.match {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  font-size: 0.9rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.match.actif {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.match.exempt {
+  opacity: 0.7;
+}
+
+.match-ligne {
+  padding: 0.45rem 0.75rem;
+}
+
+.match-ligne + .match-ligne {
+  border-top: 1px solid var(--border);
+}
+
+.match-ligne.gagnant {
+  font-weight: 700;
+}
+
+.match-ligne.gagnant::after {
+  content: " ✓";
+  color: var(--accent);
+}
+
+.match-ligne.perdant {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.match-ligne.vide {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.titre-petite-finale {
+  margin-top: 1.5rem;
+}
+
+/* ----- Podium ----- */
+.podium {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.podium-place {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.podium-gif {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.podium-nom {
+  font-weight: 600;
+  text-align: center;
+}
+
+.podium-socle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.place-1 .podium-socle {
+  height: 140px;
+  color: var(--btn-text);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.place-2 .podium-socle {
+  height: 100px;
+}
+
+.place-3 .podium-socle {
+  height: 70px;
+}
+
+.place-1 .podium-gif {
+  width: 120px;
+  height: 120px;
+}
+
+@media (max-width: 500px) {
+  .podium {
+    gap: 0.5rem;
+  }
+
+  .podium-place {
+    width: 31%;
+  }
+
+  .podium-gif {
+    width: 64px;
+    height: 64px;
+  }
+
+  .place-1 .podium-gif {
+    width: 80px;
+    height: 80px;
+  }
+}

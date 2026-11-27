@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tournoi - Slimes Battle</title>
+  <link rel="stylesheet" href="Assets/style.css">
+  <link rel="stylesheet" href="Assets/tournoi.css">
+  <script src="Assets/theme.js"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="logo">● Slimes Battle</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Liste</a></li>
+      <li><a href="ajout.html">Ajouter</a></li>
+      <li><a href="bataille.html">Bataille</a></li>
+      <li><a href="tournoi.html" class="active">Tournoi</a></li>
+    </ul>
+  </nav>
+
+  <main class="container container-large">
+    <header class="page-header">
+      <div>
+        <h1>Tournoi</h1>
+        <p class="subtitle">Au moins 3 slimes disponibles s'affrontent jusqu'au podium.</p>
+      </div>
+    </header>
+
+    <!-- Étape 1 : choix des participants -->
+    <section id="etape-selection">
+      <div class="reglages">
+        <div class="champ">
+          <label for="nb-slimes">Nombre de slimes</label>
+          <input type="number" id="nb-slimes" min="3" value="4">
+        </div>
+        <button id="btn-tirage" class="btn btn-secondaire" type="button">🎲 Tirage au sort</button>
+        <p class="subtitle"><span id="compteur-selection">0</span> sélectionné(s)</p>
+      </div>
+      <p class="aide">Clique sur les slimes pour les choisir, ou fais un tirage au sort.</p>
+
+      <div id="choix-slimes" class="choix-grille"></div>
+
+      <p id="message-selection" class="erreur"></p>
+      <button id="btn-creer" class="btn btn-creer" type="button" disabled>Créer l'arbre du tournoi</button>
+    </section>
+
+    <!-- Étape 2 : arbre + combats -->
+    <section id="etape-tournoi" hidden>
+      <div class="tournoi-actions">
+        <button id="btn-lancer" class="btn" type="button">⚔ Lancer les combats</button>
+        <button id="btn-annuler" class="btn btn-secondaire" type="button">Changer les participants</button>
+        <button id="btn-nouveau" class="btn" type="button" hidden>Nouveau tournoi</button>
+      </div>
+
+      <p id="message-tournoi" class="message-combat"></p>
+
+      <!-- Podium (affiché à la fin) -->
+      <div id="podium" class="podium" hidden></div>
+
+      <!-- Arène du match en cours -->
+      <section id="arene" class="arene" hidden>
+        <div class="slot" id="slot-0"></div>
+        <div class="arene-centre">
+          <span id="titre-match" class="arene-titre"></span>
+          <span class="vs">VS</span>
+        </div>
+        <div class="slot" id="slot-1"></div>
+      </section>
+
+      <ul id="journal" class="journal"></ul>
+
+      <h2 class="titre-section">Arbre du tournoi</h2>
+      <div id="arbre" class="arbre"></div>
+    </section>
+  </main>
+
+  <script src="Assets/data.js"></script>
+  <script src="Assets/tournoi.js"></script>
+</body>
+</html>
