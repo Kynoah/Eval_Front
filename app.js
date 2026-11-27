@@ -15,6 +15,12 @@ function afficherListe() {
     lien.className = "slime-card";
     if (slime.boost) lien.classList.add("boost");
 
+    // Animation idle du slime
+    const img = document.createElement("img");
+    img.className = "slime-gif";
+    img.src = getGif("idle", slime.couleur);
+    img.alt = `Slime ${slime.couleur}`;
+
     // Nom (+ badge si boosté)
     const nom = document.createElement("span");
     nom.className = "slime-nom";
@@ -25,7 +31,7 @@ function afficherListe() {
       badge.className = "badge-boost";
       badge.textContent = "Boost";
       nom.appendChild(badge);
-    }
+    } 
 
     // Statut enRepos
     const statut = document.createElement("span");
@@ -37,7 +43,11 @@ function afficherListe() {
       statut.textContent = "Disponible";
     }
 
-    lien.append(nom, statut);
+    const infos = document.createElement("div");
+    infos.className = "slime-infos";
+    infos.append(img, nom);
+
+    lien.append(infos, statut);
     li.appendChild(lien);
     liste.appendChild(li);
   });
