@@ -641,3 +641,21 @@ a {
     min-height: 100px;
   }
 }
+
+
+/* Zoom sur les GIF pour compenser le vide autour des slimes */
+:root {
+  --zoom-gif: 2; /* ajuste selon tes images */
+}
+
+.slime-gif,
+.fiche-gif,
+.arene-gif,
+.choix-gif {
+  transform: scale(var(--zoom-gif));
+}
+
+/* Le slime de droite garde son effet miroir */
+#slot-1 .arene-gif {
+  transform: scale(calc(var(--zoom-gif) * -1), var(--zoom-gif));
+}
