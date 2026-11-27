@@ -23,11 +23,24 @@ function getGif(action, couleur) {
 // Récupère la liste (localStorage pour garder les modifs entre les pages)
 function getSlimes() {
   const sauvegarde = localStorage.getItem(CLE_STOCKAGE);
-  if (sauvegarde) {
-    return JSON.parse(sauvegarde);
+  if (!sauvegarde) {
+    return resetSlimes();
   }
-  saveSlimes(SLIMES_INITIAUX);
-  return SLIMES_INITIAUX;
+
+  const slimes = JSON.parse(sauvegarde);
+
+  // Fin du repos : un slime perdant est au repos jusqu'à "reposJusqua" (timestamp)
+  let modifie = false;
+  slimes.forEach((s) => {
+    if (s.enRepos && s.reposJusqua && Date.now() >= s.reposJusqua) {
+      s.enRepos = false;
+      delete s.reposJusqua;
+      modifie = true;
+    }
+  });
+  if (modifie) saveSlimes(slimes);
+
+  return slimes;
 }
 
 // Sauvegarde la liste

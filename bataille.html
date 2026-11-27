@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bataille - Slimes Battle</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="theme.js"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="logo">● Slimes Battle</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Liste</a></li>
+      <li><a href="ajout.html">Ajouter</a></li>
+      <li><a href="bataille.html" class="active">Bataille</a></li>
+    </ul>
+  </nav>
+
+  <main class="container container-large">
+    <header class="page-header">
+      <div>
+        <h1>Bataille</h1>
+        <p class="subtitle">Choisis 2 slimes disponibles et lance le combat.</p>
+      </div>
+    </header>
+
+    <!-- Arène : les 2 combattants -->
+    <section class="arene">
+      <div class="slot" id="slot-0"></div>
+
+      <div class="arene-centre">
+        <span class="vs">VS</span>
+        <button id="btn-combat" class="btn" disabled>Combat !</button>
+      </div>
+
+      <div class="slot" id="slot-1"></div>
+    </section>
+
+    <p id="message-combat" class="message-combat"></p>
+
+    <!-- Journal des attaques -->
+    <ul id="journal" class="journal"></ul>
+
+    <!-- Sélection des slimes -->
+    <h2 class="titre-section">Combattants</h2>
+    <div id="choix-slimes" class="choix-grille"></div>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="bataille.js"></script>
+</body>
+</html>
