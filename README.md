@@ -10,3 +10,6 @@ J'ai remplacé les kistsunes par des slimes car je préfère les slimes et que j
 j'ai choisit de pouvoir avoir plusieurs thèmes pour pouvoir m'amuser un peu avec les couleurs, avoir un prétexte supplémentaire d'utiliser les variables CSS, et pour pouvoir avoir un site sombre car le site en claire me faisait mal aux yeux (je suis un peu sensible)
 
 le slime "Magma" est constament en mode repos pour permettre de tester certaine fonctionnaliter sans avoir une minute pour le faire (impossible a sélectionner pour les combats, style différents dans la page de la liste des slimes).
+
+assets : utiliser pour les animations : https://tienlev.itch.io/slime-pixel-set 
+Rendu hébergé sur ce lien : https://mathieugouin.fr/cour/S7/Eval_Front/Eval_Front/
