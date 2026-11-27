@@ -684,3 +684,13 @@ a {
 #slot-1 .arene-gif {
   transform: scale(calc(var(--zoom-gif) * -1), var(--zoom-gif));
 }
+
+
+/* Les GIF ne bloquent plus les clics : ils passent à travers */
+.slime-gif,
+.fiche-gif,
+.arene-gif,
+.choix-gif,
+.podium-gif {
+  pointer-events: none;
+}
