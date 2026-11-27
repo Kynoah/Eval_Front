@@ -31,7 +31,7 @@ function afficherListe() {
       badge.className = "badge-boost";
       badge.textContent = "Boost";
       nom.appendChild(badge);
-    } 
+    }
 
     // Statut enRepos
     const statut = document.createElement("span");
@@ -52,5 +52,13 @@ function afficherListe() {
     liste.appendChild(li);
   });
 }
+
+// Bouton de test : recharge les données de départ
+document.getElementById("btn-reset").addEventListener("click", () => {
+  if (confirm("Remettre les données de départ ? Les slimes ajoutés et les modifications seront perdus.")) {
+    resetSlimes();
+    afficherListe();
+  }
+});
 
 afficherListe();

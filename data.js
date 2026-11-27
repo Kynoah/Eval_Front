@@ -34,4 +34,11 @@ function getSlimes() {
 function saveSlimes(slimes) {
   localStorage.setItem(CLE_STOCKAGE, JSON.stringify(slimes));
 }
- 
+
+// Remet la liste de départ (pour les tests)
+function resetSlimes() {
+  // Copie profonde pour ne pas modifier SLIMES_INITIAUX
+  const copie = JSON.parse(JSON.stringify(SLIMES_INITIAUX));
+  saveSlimes(copie);
+  return copie;
+}

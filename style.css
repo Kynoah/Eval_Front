@@ -13,7 +13,7 @@
   --nav-bg: rgba(255, 255, 255, 0.9);
   --btn-bg: #1c1917;
   --btn-text: #ffffff;
-} 
+}
 
 /* ===== Thème sombre ===== */
 [data-theme="sombre"] {
@@ -120,6 +120,11 @@ a {
 
 .page-header {
   margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .page-header h1 {
@@ -237,6 +242,20 @@ a {
   opacity: 0.85;
 }
 
+.btn-secondaire {
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.btn-secondaire:hover:not(:disabled) {
+  opacity: 1;
+  color: var(--text);
+  border-color: var(--text);
+}
+
 .btn:disabled {
   background: var(--border);
   color: var(--muted);
@@ -316,6 +335,80 @@ a {
   min-height: 1.5em;
 }
 
+/* ===== Formulaire d'ajout ===== */
+.formulaire {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.form-apercu {
+  flex-shrink: 0;
+}
+
+.form-champs {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.champ {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.champs-ligne {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.champ label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.champ input,
+.champ textarea,
+.champ select {
+  font: inherit;
+  padding: 0.55rem 0.75rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  resize: vertical;
+  transition: border-color 0.2s;
+}
+
+.champ input:focus,
+.champ textarea:focus,
+.champ select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.erreur {
+  font-size: 0.85rem;
+  color: #dc2626;
+}
+
+.erreur:empty {
+  display: none;
+}
+
+.form-champs .btn {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
 /* ===== Page introuvable ===== */
 .introuvable {
   text-align: center;
@@ -339,9 +432,23 @@ a {
     margin-left: 0;
   }
 
-  .fiche {
+  .fiche,
+  .formulaire {
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+
+  .formulaire {
+    text-align: left;
+    padding: 1.25rem;
+  }
+
+  .form-champs {
+    width: 100%;
+  }
+
+  .champs-ligne {
+    grid-template-columns: 1fr;
   }
 }

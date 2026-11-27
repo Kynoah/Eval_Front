@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajouter un Slime - Slimes Battle</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="theme.js"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="logo">● Slimes Battle</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Liste</a></li>
+      <li><a href="ajout.html" class="active">Ajouter</a></li>
+      <li><a href="bataille.html">Bataille</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <header class="page-header">
+      <h1>Nouveau Slime</h1>
+      <p class="subtitle">Crée ton slime et envoie-le au combat.</p>
+    </header>
+
+    <form id="form-ajout" class="formulaire" novalidate>
+      <div class="form-apercu">
+        <img id="apercu-gif" class="fiche-gif" src="" alt="Aperçu du slime">
+      </div>
+
+      <div class="form-champs">
+        <div class="champ">
+          <label for="nom">Nom</label>
+          <input type="text" id="nom" name="nom" maxlength="30" required>
+          <p class="erreur" id="erreur-nom"></p>
+        </div>
+
+        <div class="champ">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" rows="3" maxlength="200" required></textarea>
+          <p class="erreur" id="erreur-description"></p>
+        </div>
+
+        <div class="champ">
+          <label for="couleur">Couleur</label>
+          <select id="couleur" name="couleur"></select>
+        </div>
+
+        <div class="champs-ligne">
+          <div class="champ">
+            <label for="pv">PV</label>
+            <input type="number" id="pv" name="pv" min="1" max="999" value="100" required>
+          </div>
+          <div class="champ">
+            <label for="force">Force</label>
+            <input type="number" id="force" name="force" min="1" max="99" value="15" required>
+          </div>
+          <div class="champ">
+            <label for="vitesse">Vitesse</label>
+            <input type="number" id="vitesse" name="vitesse" min="1" max="99" value="15" required>
+          </div>
+        </div>
+        <p class="erreur" id="erreur-stats"></p>
+
+        <button type="submit" class="btn">Créer le slime</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="ajout.js"></script>
+</body>
+</html>
