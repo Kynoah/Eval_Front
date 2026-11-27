@@ -20,6 +20,24 @@ function echapper(texte) {
 
 const attendre = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+// Coup critique : 10 % de chance de faire x2 dégâts
+const CHANCE_CRITIQUE = 0.1;
+
+function calculerAttaque(force) {
+  const critique = Math.random() < CHANCE_CRITIQUE;
+  return { degats: critique ? force * 2 : force, critique };
+}
+
+// Petit texte "CRITIQUE !" au-dessus du slime touché
+function afficherCritique(combattant) {
+  const slot = document.getElementById(`slot-${combattant.slot}`);
+  const popup = document.createElement("span");
+  popup.className = "critique-popup";
+  popup.textContent = "CRITIQUE !";
+  slot.appendChild(popup);
+  setTimeout(() => popup.remove(), 900);
+}
+
 // ---------- Affichage ----------
 
 // Liste des slimes à sélectionner
@@ -176,12 +194,14 @@ async function lancerCombat() {
       const defenseur = attaquant === a ? b : a;
 
       // L'attaquant retire sa force aux PV de l'adversaire
-      defenseur.pv -= attaquant.slime.force;
+      const { degats, critique } = calculerAttaque(attaquant.slime.force);
+      defenseur.pv -= degats;
 
       majCombattant(attaquant, "attaque");
       majCombattant(defenseur, "clignement");
+      if (critique) afficherCritique(defenseur);
       ajouterJournal(
-        `Tour ${tour} : ${attaquant.slime.nom} inflige ${attaquant.slime.force} dégâts à ${defenseur.slime.nom} (${Math.max(0, defenseur.pv)} PV restants)`
+        `Tour ${tour} : ${critique ? "💥 Coup critique ! " : ""}${attaquant.slime.nom} inflige ${degats} dégâts à ${defenseur.slime.nom} (${Math.max(0, defenseur.pv)} PV restants)`
       );
 
       await attendre(dureeAttaque);
